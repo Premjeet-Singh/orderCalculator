@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>AngularJS - Order Calculator</title>
+
+		<link href="http://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<script src="js/script.js"></script>
+	</head>
+
+	<body ng-app ng-controller="OrderFormController">
+
+		<form>
+			<h1>Invoice<small> &nbsp;&nbsp;[ Book's Price ]</small></h1>
+			<ul>
+				<li ng-repeat="service in services" ng-click="toggleActive(service)" ng-class="{active:service.active}">
+					{{service.name}} <span>{{service.price | currency: "&#8377;  "}}</span>
+				</li>
+			</ul>
+
+			<div class="total">
+				Total: <span>{{total() | currency: "&#8377;  "}}</span>
+			</div>
+		</form>
+
+	</body>
+</html>
